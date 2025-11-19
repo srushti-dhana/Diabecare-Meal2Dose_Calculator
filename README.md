@@ -95,3 +95,144 @@ A smart, privacy-focused platform that calculates personalized insulin doses for
 VITE_SUPABASE_URL=your_supabase_url
 VITE_SUPABASE_ANON_KEY=your_anon_key
 VITE_EDGE_FUNCTION_URL=your_edge_function_url
+
+## Supabase Edge Function (.env)
+```env
+CALORIE_NINJA_API_KEY=your_api_key
+
+⚙️ Installation
+Clone the repository
+git clone <repo-url>
+cd Meal2Dose
+
+Install frontend dependencies
+npm install
+
+Run the development server
+npm run dev
+
+Deploy Supabase Edge Function
+supabase functions deploy fetch-nutrition
+
+🧱 Project Structure
+.
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── hooks/
+│   ├── utils/
+│   └── styles/
+├── supabase/
+│   ├── functions/
+│   ├── migrations/
+│   └── policies/
+└── README.md
+
+🧪 Usage
+1. Sign Up / Log In
+
+Users create an account using Supabase Auth.
+
+2. Set Medical Parameters
+
+Total Daily Dose (TDD)
+
+Insulin-to-Carb Ratio (I:C)
+
+Target Blood Glucose
+
+3. Search for Food
+
+Search Indian or foreign meals:
+
+Roti, Paratha
+
+Idli, Dosa
+
+Pasta, Rice, Sandwiches
+
+Pizza, Sushi, Burgers
+
+4. Enter Quantity
+
+Food → Portion Size → Carb Calculation
+
+5. View Insulin Dose
+
+The app calculates:
+
+Carb-based insulin
+
+Correction insulin
+
+Total insulin units
+
+6. Save the Dose History
+
+All records stored securely in Supabase with RLS.
+
+🛡️ Security Considerations
+Application Security
+
+No medical data stored without authentication
+
+Strict RLS rules
+
+Strong validation on both client & server side
+
+API Security
+
+API keys hidden using Edge Functions
+
+Database protected with Policy-based access
+
+User Privacy
+
+Users can only access their own logs
+
+No sharing or public access
+
+📈 Future Enhancements
+
+📸 AI food detection via camera
+
+🤖 ML-based insulin recommendations
+
+📱 Mobile app using Flutter or React Native
+
+🩺 Doctor dashboard for monitoring
+
+⌚ Integration with smart glucometers
+
+🌐 Multi-language support
+
+🔔 Reminders & notifications
+
+🛠️ Deployment
+Local Development
+npm install
+npm run dev
+supabase start
+
+Production Build
+npm run build
+
+Production Deployment
+
+Deploy frontend to Netlify / Vercel
+
+Deploy Supabase Edge Functions
+
+Configure production .env files
+
+🤝 Contributing
+
+Fork the repository
+
+Create a feature branch
+
+Make changes
+
+Test thoroughly
+
+Submit a PR
