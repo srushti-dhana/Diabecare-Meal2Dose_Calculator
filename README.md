@@ -1,220 +1,375 @@
-# 🍽️ Meal2Dose – Intelligent Insulin Dose Calculator
+# 🩺 DiabeCare AI – Smart Diabetes Management & Insulin Dose Calculator
 
-A smart, privacy-focused platform that calculates personalized insulin doses for diabetic users based on Indian and International foods. Built using **React**, **TypeScript**, **Tailwind**, **Supabase**, and secure serverless functions, Meal2Dose provides precise, data-driven insulin recommendations for everyday meals.
+DiabeCare AI is an intelligent healthcare platform designed to help diabetic patients manage their condition more effectively. The system combines insulin dose calculation, AI-powered diabetes assistance, medical report analysis, and personalized dietary recommendations into a single application.
 
----
-
-## ⭐ Features
-
-### Core Functionality
-- **Food-Based Insulin Calculator:** Automatically computes insulin dose using food carbs, user’s I:C ratio, TDD, and correction factor.
-- **Indian + Foreign Dishes Support:** Roti, idli, dosa, dal, pasta, noodles, soups, burgers, rice bowls, etc.
-- **Secure User Profiles:** Stores medical parameters such as Target BG, TDD, and insulin-carb ratio.
-- **Dose History Tracking:** Complete logging of previous meals, carb values, and insulin doses.
-- **Nutrition Lookup:** Uses CalorieNinjas API via Supabase Edge Functions.
-
-### User Interface
-- **Modern React UI:** Clean, responsive design with Tailwind + ShadCN components.
-- **Real-time Form Validation:** React Hook Form + Zod.
-- **Smooth Animations:** Integrated with Framer Motion.
-- **Dark/Light Theme Compatible:** Mobile-friendly and accessible.
+Built using **React, TypeScript, FastAPI, LangChain, LangGraph, Groq LLM, ChromaDB, Supabase, and Retrieval-Augmented Generation (RAG)**, the platform delivers secure and personalized diabetes support.
 
 ---
 
-## 🔐 Security Features
-- **Supabase Authentication:** Secure signup, login, and session management.
-- **Row-Level Security (RLS):** Ensures users can only access their own medical data & dose logs.
-- **Edge Function API Proxy:** Protects external API keys by restricting direct frontend access.
-- **Encrypted Transport Layer:** All communication is encrypted (HTTPS).
-- **No Hardcoded Secrets:** All keys stored server-side or in environment variables.
+# ⭐ Features
+
+## 🧮 Smart Insulin Dose Calculator
+
+* Calculates insulin dosage based on:
+
+  * Carbohydrate intake
+  * Insulin-to-Carb Ratio (I:C)
+  * Total Daily Dose (TDD)
+  * Correction Factor
+  * Target Blood Glucose
+* Supports Indian and International food items.
+* Provides quick and accurate insulin recommendations.
 
 ---
 
-## 🏗️ Architecture
+## 🤖 AI Diabetes Health Coach
 
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/f5133681-e166-4b5f-bcf5-3f4a2d21ca12" />
+* AI-powered conversational assistant.
+* Answers diabetes-related queries.
+* Provides personalized diabetic-friendly food suggestions.
+* Recommends low Glycemic Index (GI) meals.
+* Supports Indian dietary habits.
 
----
+Examples:
 
-## 🧰 Technology Stack
-
-### **Frontend**
-- React.js
-- TypeScript
-- Vite
-- Tailwind CSS
-- ShadCN UI
-- Radix UI
-- React Hook Form
-- Zod
-- Framer Motion
-
-### **Backend**
-- Supabase
-- PostgreSQL
-- Supabase Auth
-- Supabase Edge Functions
-- RLS Policies
-
-### **APIs**
-- CalorieNinjas API
+* Best breakfast for diabetes
+* Foods to avoid with high HbA1c
+* Daily meal planning
+* Blood sugar management tips
 
 ---
 
-## 📦 Getting Started
+## 📄 Medical Report Analysis
 
-### **Prerequisites**
-- Node.js (16+)
-- Supabase Account
-- CalorieNinjas API Key
-- Git installed
+* Upload pathology reports in PDF format.
+* Automatically extracts important medical information.
+* Analyzes:
+
+  * HbA1c
+  * Fasting Blood Sugar
+  * Postprandial Blood Sugar
+  * Glucose Trends
+* Generates simplified patient-friendly explanations.
 
 ---
 
-## 🌍 Environment Variables
+## 🔍 Retrieval-Augmented Generation (RAG)
 
-### **Frontend (`.env`)**
-```env
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_anon_key
-VITE_EDGE_FUNCTION_URL=your_edge_function_url
+* Converts uploaded reports into vector embeddings.
+* Stores report chunks in ChromaDB.
+* Retrieves relevant medical information before generating responses.
+* Enables context-aware report discussions.
+
+---
+
+## 🌐 Real-Time Web Search
+
+* Uses Tavily Search integration.
+* Retrieves current diabetes-related information.
+* Provides updated healthcare insights and recommendations.
+
+---
+
+## 👤 User Management
+
+* Secure authentication.
+* Personalized user sessions.
+* Medical data tracking.
+* Future-ready for patient history management.
+
+---
+
+# 🔐 Security Features
+
+## Authentication & Privacy
+
+* Secure user login system
+* Session-based interactions
+* Protected patient information
+* No exposure of API secrets
+
+## Data Protection
+
+* Environment variable based secret management
+* Secure backend communication
+* Report processing on server-side
+* HTTPS-ready architecture
+
+---
+
+# 🏗️ System Architecture
+
+```text
+User
+  │
+  ▼
+React Frontend
+  │
+  ▼
+FastAPI Backend
+  │
+  ├── Groq LLM
+  ├── Tavily Search
+  ├── ChromaDB Vector Store
+  ├── HuggingFace Embeddings
+  └── PDF Report Processing
+           │
+           ▼
+      AI Response
 ```
 
-### **Supabase Edge Function (`.env`)**
+---
+
+# 🧰 Technology Stack
+
+## Frontend
+
+* React.js
+* TypeScript
+* Vite
+* Tailwind CSS
+* ShadCN UI
+* Radix UI
+* React Hook Form
+* Zod
+* TanStack Query
+
+## Backend
+
+* FastAPI
+* Python
+* LangChain
+* LangGraph
+* ChromaDB
+* Pydantic
+
+## AI & Machine Learning
+
+* Groq (Llama 3.3 70B)
+* HuggingFace Embeddings
+* RAG Pipeline
+* Vector Search
+
+## Search
+
+* Tavily Search API
+
+## Database & Storage
+
+* Chroma Vector Database
+* Session-Based Memory
+
+---
+
+# 📦 Getting Started
+
+## Prerequisites
+
+* Node.js 18+
+* Python 3.10+
+* Git
+* Groq API Key
+* Tavily API Key
+
+---
+
+# 🌍 Environment Variables
+
+## Backend (.env)
+
 ```env
-CALORIE_NINJA_API_KEY=your_api_key
+GROQ_API_KEY=your_groq_api_key
+
+TAVILY_API_KEY=your_tavily_api_key
 ```
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation
 
-### **Clone the repository**
+## Clone Repository
+
 ```bash
-git clone <repo-url>
-cd Meal2Dose
+git clone https://github.com/your-username/DiabeCare-AI.git
+
+cd DiabeCare-AI
 ```
 
-### **Install frontend dependencies**
+---
+
+## Frontend Setup
+
 ```bash
 npm install
-```
 
-### **Run the development server**
-```bash
 npm run dev
 ```
 
-### **Deploy Supabase Edge Function**
-```bash
-supabase functions deploy fetch-nutrition
+Frontend runs on:
+
+```text
+http://localhost:5173
 ```
 
 ---
 
-## 🧱 Project Structure
+## Backend Setup
+
+Create virtual environment:
+
+```bash
+python -m venv venv
 ```
-Meal2Dose/
+
+Activate environment:
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+### Linux/Mac
+
+```bash
+source venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Start API server:
+
+```bash
+uvicorn api:app --reload
+```
+
+Backend runs on:
+
+```text
+http://localhost:8000
+```
+
+---
+
+# 📁 Project Structure
+
+```text
+DiabeCare-AI/
+│
 ├── src/
 │   ├── components/
 │   ├── pages/
 │   ├── hooks/
-│   ├── utils/
-│   └── styles/
-├── supabase/
-│   ├── functions/
-│   ├── migrations/
-│   └── policies/
+│   ├── services/
+│   └── utils/
+│
+├── api.py
+│
+├── temp_uploads/
+│
+├── vector_store/
+│
+├── public/
+│
+├── .env
+│
 └── README.md
 ```
 
 ---
 
-## 🧪 Usage
+# 🧪 Usage
 
-### 1. **Sign Up / Log In**
-Users create an account using Supabase Auth.
+## Step 1: Open Application
 
-### 2. **Set Medical Parameters**
-- Total Daily Dose (TDD)  
-- Insulin-to-Carb Ratio (I:C)  
-- Target Blood Glucose  
-
-### 3. **Search for Food**
-Supports Indian + international meals:  
-Roti, Paratha, Idli, Dosa, Pasta, Rice, Sandwiches, Pizza, Sushi, Burgers, etc.
-
-### 4. **Enter Quantity**
-Food → Portion Size → Carb Calculation
-
-### 5. **View Insulin Dose**
-The app calculates:
-- Carb-based insulin  
-- Correction insulin  
-- Total insulin units  
-
-### 6. **Save the Dose History**
-All records securely stored with RLS.
+Launch frontend and backend servers.
 
 ---
 
-## 🛡️ Security Considerations
+## Step 2: Calculate Insulin Dose
 
-### Application Security
-- No access without authentication  
-- Strict RLS policies  
-- Strong validation on client & server  
+Enter:
 
-### API Security
-- API keys hidden using Edge Functions  
-- No exposure of sensitive keys  
+* Food item
+* Quantity
+* Blood glucose values
+* Personal insulin settings
 
-### User Privacy
-- Users can only view their own logs  
-- No public data access  
+Receive:
 
----
-
-## 📈 Future Enhancements
-- 📸 AI food detection via camera  
-- 🤖 ML-based insulin recommendations  
-- 📱 Mobile app (Flutter / React Native)  
-- 🩺 Doctor monitoring dashboard  
-- ⌚ Smart glucometer integration  
-- 🌐 Multi-language support  
-- 🔔 Meal & insulin reminders  
+* Carb-based insulin
+* Correction insulin
+* Total recommended dose
 
 ---
 
-## 🛠️ Deployment
+## Step 3: Upload Medical Report
 
-### Local Development
-```bash
-npm install
-npm run dev
-supabase start
-```
+Upload PDF report.
 
-### Production Build
-```bash
-npm run build
-```
+The system will:
 
-### Production Deployment
-- Deploy frontend to Netlify / Vercel  
-- Deploy Supabase Edge Functions  
-- Configure production `.env` files  
+* Extract report contents
+* Generate embeddings
+* Store in vector database
 
 ---
 
-## 🤝 Contributing
-1. Fork the repository  
-2. Create a feature branch  
-3. Make your changes  
-4. Test thoroughly  
-5. Submit a Pull Request  
+## Step 4: Chat with AI
+
+Ask questions such as:
+
+* What does my HbA1c mean?
+* Is my blood sugar normal?
+* Suggest a diabetic meal plan.
+* Explain my medical report.
 
 ---
 
-Made with ❤️ by **Srushti Dhanawade**
+# 📈 Future Enhancements
+
+* 📸 AI Food Recognition using Camera
+* 📱 Android & iOS Application
+* 🩺 Doctor Dashboard
+* ⌚ Smart Glucometer Integration
+* 📊 Blood Sugar Trend Analytics
+* 🔔 Medicine & Meal Reminders
+* 🌍 Multi-Language Support
+* 🤖 Predictive Diabetes Risk Analysis
+
+---
+
+# 🛡️ Disclaimer
+
+DiabeCare AI is intended for educational and supportive purposes only.
+
+The insulin recommendations and medical insights generated by the system should not replace professional medical advice, diagnosis, or treatment.
+
+Always consult a qualified healthcare professional before making medical decisions.
+
+---
+
+# 👩‍💻 Author
+
+**Srushti Dhanawade**
+
+Final Year Computer Engineering Student
+
+Passionate about AI, Healthcare Technology, Full-Stack Development, and Data-Driven Solutions.
+
+---
+
+# 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push the branch
+5. Open a Pull Request
+
+Contributions are always welcome!
 
